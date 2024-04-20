@@ -1,15 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
+  background-color: #4e4b5c;
+  background: linear-gradient(
+    0deg,
+    rgba(132, 126, 137, 1) 0%,
+    rgba(78, 75, 92, 1) 100%
+  );
+
+  color: #afbfc0;
 }
 
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 0;
   text-align: center;
 }
 
 h1 {
+  font-size: 4rem;
   font-weight: 400;
 }
 
@@ -21,12 +35,33 @@ h1 {
 }
 
 header {
+  padding: 2rem 0 4rem;
+}
+
+label {
+  font-size: 2rem;
 }
 
 section {
-  justify-self: center;
+  /* justify-self: center; */
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 0.5rem;
+  margin: 1rem;
+  width: 20rem;
+  border-radius: 8px;
+  border: 2px solid #afbfc0;
+}
+
+button {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 2px solid #afbfc0;
 }
 
 footer {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
