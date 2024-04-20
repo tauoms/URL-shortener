@@ -59,9 +59,12 @@ input {
 button {
   padding: 0.5rem;
   border-radius: 8px;
+  background-color: #afbfc0;
+  color: #4e4b5c;
   border: 2px solid #afbfc0;
 }
 
 footer {
   margin-bottom: 1rem;
+  color: #4e4b5c;
 }
