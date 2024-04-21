@@ -4,16 +4,7 @@ import axios from "axios";
 const Middle = () => {
   const apiKey = import.meta.env.VITE_API_TOKEN;
   const [inputUrl, setInputUrl] = useState("");
-  const [dataForApi, setDataForApi] = useState({
-    type: "direct",
-    password: apiKey,
-    active: true,
-    expires_at: "2024-05-06",
-    activates_at: "2024-03-25",
-    utm: "utm_source=google&utm_medium=banner",
-    domain_id: null,
-    long_url: "",
-  });
+  const [shortenedUrl, setShortenedUrl] = useState("");
 
   const handleChange = (event) => {
     const value = event.target.value;
@@ -22,22 +13,51 @@ const Middle = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setDataForApi({ ...dataForApi, long_url: inputUrl });
     axios
-      .post("https://unelma.io/api/v1/link/", dataForApi)
+      .post(
+        "https://unelma.io/api/v1/link",
+        {
+          alias: "short",
+          type: "direct",
+          password: null,
+          active: true,
+          expires_at: "2024-05-06",
+          activates_at: "2024-03-25",
+          utm: "utm_source=google&utm_medium=banner",
+          domain_id: null,
+          title: "Google",
+          description: "Search Engine",
+          pixels: [495],
+          groups: [54],
+          rules: [
+            {
+              type: "geo",
+              key: "us",
+              value: "https://facebook.com",
+            },
+          ],
+          long_url: inputUrl,
+        },
+        {
+          headers: {
+            accept: "application/json",
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then(function (response) {
         console.log(response);
+        setShortenedUrl(response.data.link);
       })
       .catch(function (error) {
         console.log(error);
       });
-    console.log(dataForApi);
-    console.log(inputUrl);
   };
 
   return (
     <>
-      <p id="result">{inputUrl}</p>
+      <p id="result">{shortenedUrl}</p>
 
       <section>
         <form onSubmit={handleSubmit}>
