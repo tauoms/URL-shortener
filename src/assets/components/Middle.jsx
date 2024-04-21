@@ -17,7 +17,7 @@ const Middle = () => {
       .post(
         "https://unelma.io/api/v1/link",
         {
-          alias: "short",
+          alias: "tauoms",
           type: "direct",
           password: null,
           active: true,
@@ -48,7 +48,7 @@ const Middle = () => {
       )
       .then(function (response) {
         console.log(response);
-        setShortenedUrl(response.data.link);
+        setShortenedUrl(response.data.link.short_url);
       })
       .catch(function (error) {
         console.log(error);
