@@ -52,7 +52,6 @@ const Middle = () => {
         }
       )
       .then(function (response) {
-        console.log(response);
         setShortenedUrl(response.data.link.short_url);
       })
       .catch(function (error) {
