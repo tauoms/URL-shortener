@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const Middle = () => {
-  const apiKey = process.env.REACT_APP_API_TOKEN;
+  const apiKey = import.meta.env.VITE_API_TOKEN;
   const [inputUrl, setInputUrl] = useState("");
   const [dataForApi, setDataForApi] = useState({
     type: "direct",
