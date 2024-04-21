@@ -46,7 +46,6 @@ label {
 }
 
 section {
-  /* justify-self: center; */
   display: flex;
   flex-direction: column;
 }
@@ -65,6 +64,11 @@ button {
   background-color: #afbfc0;
   color: #4e4b5c;
   border: 2px solid #afbfc0;
+}
+
+#result {
+  height: 100px;
+  font-size: 2rem;
 }
 
 footer {
