@@ -74,12 +74,12 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 30vh;
+  height: 20vh;
   font-size: 2rem;
 }
 
 footer {
-  margin: 2rem 0 1rem;
+  margin-top: auto;
+  margin-bottom: 1rem;
   color: #4e4b5c;
-  justify-self: flex-end;
 }
