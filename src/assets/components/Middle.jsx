@@ -5,6 +5,11 @@ const Middle = () => {
   const apiKey = import.meta.env.VITE_API_TOKEN;
   const [inputUrl, setInputUrl] = useState("");
   const [shortenedUrl, setShortenedUrl] = useState("");
+  const currentDate = new Date().toISOString().slice(0, 10);
+  let expirationDate = new Date();
+  expirationDate.setFullYear(expirationDate.getFullYear() + 1);
+  expirationDate = expirationDate.toISOString().slice(0, 10);
+  const randomAlias = Math.floor(100000 + Math.random() * 900000);
 
   const handleChange = (event) => {
     const value = event.target.value;
@@ -17,12 +22,12 @@ const Middle = () => {
       .post(
         "https://unelma.io/api/v1/link",
         {
-          alias: "tauoms",
+          alias: `${randomAlias}`,
           type: "direct",
           password: null,
           active: true,
-          expires_at: "2024-05-06",
-          activates_at: "2024-03-25",
+          expires_at: expirationDate,
+          activates_at: currentDate,
           utm: "utm_source=google&utm_medium=banner",
           domain_id: null,
           title: "Google",
